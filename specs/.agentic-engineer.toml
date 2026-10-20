@@ -1,0 +1,4 @@
+apiVersion = "agentic-engineer/v1"
+name = "e2e-smoke-1020"
+createdAt = "2026-10-20T06:23:02Z"
+idea = "E2E smoke test 2026-10-20 (VM recovery check, safe to delete): a single public web page called 'VM health note' that shows a heading, today's date and a short static message. No sign-in, no database, no backend service, no external resources. Keep it to one small web app."
