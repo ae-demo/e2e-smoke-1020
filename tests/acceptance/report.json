@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-20T06:50:47.483381Z",
+  "commit": "cce7fd83e47f3b81848c57092bfe0c25032c283f",
+  "baseUrl": "https://http-e2e-smoke-102-development-default-dba2fbad.apps.94.72.97.95.sslip.io",
+  "isolation": "the app is a read-only public page with no state; each scenario opens it fresh and asserts only on what it renders",
+  "scenarios": [
+    {
+      "feature": "F1 Health note page",
+      "featureFile": "specs/validation/acceptance/F1-health-note-page.feature",
+      "line": 6,
+      "rule": "The page is public and titled \"VM health note\"",
+      "scenario": "Opening the page without signing in",
+      "tags": [],
+      "outcome": "passed",
+      "steps": [
+        {
+          "text": "Vera the visitor has no account and is not signed in",
+          "keyword": "Given",
+          "command": "fresh agent-browser session, no login"
+        },
+        {
+          "text": "Vera opens the page",
+          "keyword": "When",
+          "command": "agent-browser open $URL"
+        },
+        {
+          "text": "she sees the heading \"VM health note\"",
+          "keyword": "Then",
+          "command": "agent-browser wait --text \"VM health note\" --timeout 4000",
+          "exit": 0,
+          "observed": "snapshot: heading \"VM health note\" [level=1]"
+        }
+      ]
+    },
+    {
+      "feature": "F1 Health note page",
+      "featureFile": "specs/validation/acceptance/F1-health-note-page.feature",
+      "line": 12,
+      "rule": "The page is public and titled \"VM health note\"",
+      "scenario": "No sign-in is asked for",
+      "tags": [
+        "@negative"
+      ],
+      "outcome": "passed",
+      "steps": [
+        {
+          "text": "Vera the visitor is not signed in",
+          "keyword": "Given",
+          "command": "fresh agent-browser session"
+        },
+        {
+          "text": "Vera opens the page",
+          "keyword": "When",
+          "command": "agent-browser open $URL"
+        },
+        {
+          "text": "no sign-in step stands between her and the page",
+          "keyword": "Then",
+          "command": "agent-browser get url",
+          "exit": 0,
+          "observed": "final URL is the app root, no redirect; document GET / returned 200; get count \"input[type=password], form\" printed 0"
+        }
+      ]
+    },
+    {
+      "feature": "F1 Health note page",
+      "featureFile": "specs/validation/acceptance/F1-health-note-page.feature",
+      "line": 20,
+      "rule": "The page shows today's date in a long readable form",
+      "scenario": "The date is shown",
+      "tags": [],
+      "outcome": "passed",
+      "steps": [
+        {
+          "text": "Vera opens the page on 20 October 2026",
+          "keyword": "Given",
+          "command": "date +%F printed 2026-10-20"
+        },
+        {
+          "text": "the page has loaded",
+          "keyword": "When",
+          "command": "agent-browser open $URL"
+        },
+        {
+          "text": "she sees the date \"20 October 2026\"",
+          "keyword": "Then",
+          "command": "agent-browser wait --text \"20 October 2026\" --timeout 4000",
+          "exit": 0
+        }
+      ]
+    },
+    {
+      "feature": "F1 Health note page",
+      "featureFile": "specs/validation/acceptance/F1-health-note-page.feature",
+      "line": 28,
+      "rule": "The page shows one fixed short message",
+      "scenario": "The message is shown below the heading",
+      "tags": [],
+      "outcome": "passed",
+      "steps": [
+        {
+          "text": "Vera opens the page",
+          "keyword": "Given",
+          "command": "agent-browser open $URL"
+        },
+        {
+          "text": "the page has loaded",
+          "keyword": "When",
+          "command": "agent-browser wait --text \"VM health note\" --timeout 4000",
+          "exit": 0
+        },
+        {
+          "text": "she sees the message \"The VM is up and serving this page.\" below the heading",
+          "keyword": "Then",
+          "command": "agent-browser wait --text \"The VM is up and serving this page.\" --timeout 4000",
+          "exit": 0,
+          "observed": "snapshot order: h1 \"VM health note\", then date, then paragraph with the message"
+        }
+      ]
+    }
+  ]
+}
