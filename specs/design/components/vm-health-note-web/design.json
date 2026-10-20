@@ -1,0 +1,14 @@
+{
+  "name": "vm-health-note-web",
+  "type": "web-application",
+  "version": "0.1.0",
+  "language": "TypeScript",
+  "buildpack": "docker",
+  "appPath": "vm-health-note-web",
+  "entrypoint": "deployment/web-application",
+  "exposure": "internet",
+  "dependencies": [],
+  "description": "A single public static page served to any visitor with no sign-in: it shows the heading \"VM health note\", today's date and a fixed short message. It is the only deployable because the product is one small web app. It calls no backend, stores nothing and uses no external resource.",
+  "stories": ["F1.1", "F1.2", "F1.3"],
+  "skillsPinned": ["react-webapp", "oxygen-ui-design-system"]
+}

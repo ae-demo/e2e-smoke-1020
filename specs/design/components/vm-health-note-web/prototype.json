@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 3,
+  "name": "VM health note",
+  "entryScreen": "screen.note",
+  "roles": [{ "id": "Visitor", "name": "Visitor" }],
+  "states": [{ "id": "state.default", "name": "Default" }],
+  "screens": [
+    { "id": "screen.note", "name": "Health note", "roleIds": ["Visitor"] }
+  ],
+  "flows": [
+    { "id": "flow.view-note", "name": "View the health note", "roleId": "Visitor", "screenIds": ["screen.note"] }
+  ]
+}

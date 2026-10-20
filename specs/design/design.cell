@@ -1,0 +1,5 @@
+title VM health note
+
+component vm-health-note-web as "VM health note" web-application
+
+north -> vm-health-note-web

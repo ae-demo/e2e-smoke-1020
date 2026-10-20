@@ -19,3 +19,4 @@ A public page that shows a heading, today's date and a short static message to a
 
 - Any live health check, status data or history.
 - Editing the message from the page.
+
